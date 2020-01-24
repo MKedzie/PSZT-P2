@@ -43,3 +43,4 @@ def read_data(printing=False):
     white_data_training,white_data_test, white_quality_training, white_quality_test = model_selection.train_test_split(white_data_values,white_data_quality,test_size=0.2,random_state=42,shuffle=False)
     # koniec uniwersalnej czesci
     return red_data_training,red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test
+#wczytuj tak: red_data_training,red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test = read_data()
