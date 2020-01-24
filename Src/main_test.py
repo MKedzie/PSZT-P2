@@ -1,9 +1,12 @@
-print ("Cokolwiek")
+from regression import logistic_regression
 
-
+def func():
+    print("nic")
 
 def main():
-    print("Co tam?")
+    print("")
 
 if __name__ == '__main__':
     main()
+    logistic_regression()
+
