@@ -1,3 +1,12 @@
-import wines_import
+from regression import logistic_regression
 
-red_data_training,red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test = wines_import.read_data()
+def func():
+    print("nic")
+
+def main():
+    print("")
+
+if __name__ == '__main__':
+    main()
+    logistic_regression()
+
