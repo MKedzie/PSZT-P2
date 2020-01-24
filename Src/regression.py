@@ -5,4 +5,4 @@ def logistic_regression():
     data=plik.dropna()
     print(data.shape)
     print(list(data.columns))
-    
+    print(data[1])
