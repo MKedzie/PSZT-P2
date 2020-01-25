@@ -1,4 +1,4 @@
-from regression import logistic_regression
+
 
 def func():
     print("nic")
@@ -8,5 +8,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-    logistic_regression()
+
 
