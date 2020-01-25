@@ -7,8 +7,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 #Read the data file
-data=pd.read_csv('../Data/winequality-red.csv')
-
+data=pd.read_csv('../Data/winequality-white.csv')
+"""
 def res_mv(df):
     for i in df.describe().columns:
         if df[i].isnull().sum()!=0:
@@ -16,6 +16,7 @@ def res_mv(df):
     for i in df.describe(include=pd.core.series.Series).columns:
         if df[i].isnull().sum()!=0:
             df[i].fillna(method="bfill",inplace=True)
+
 #Function to detect and resolve the outliers
 def outlier_detect(df):
     for i in df.describe().columns[1:11]:
@@ -29,7 +30,7 @@ def outlier_detect(df):
         outl=[]
         new_data=[]
     for k in x:
-        if k in UTV:
+        if k == UTV:
             outl.append(k)
     for e in x:
         if e in (outl):
@@ -40,7 +41,7 @@ def outlier_detect(df):
 
     median_new=np.median(x_temp)
     for j in x:
-        if j in UTV :
+        if j == UTV :
             p.append(median_new)
         else:
             p.append(j)
@@ -48,44 +49,46 @@ def outlier_detect(df):
     df[i]=p
     #print("Outliers resolved”)
     return df
-plt.boxplot(data['volatile acidity'],notch=True)
+
+plt.plot(data['volatile acidity'])
 plt.title('Distribution of volatile acidity with outliers')
 plt.ylabel('Volatile acidity')
 plt.show()
-plt.boxplot(data['citric acid'],notch=True)
+plt.plot(data['citric acid'])
 plt.title('Distribution of citric acid with outliers')
 plt.ylabel('Citric acid')
 plt.show()
-plt.boxplot(data['sulphates'],notch=True)
+plt.plot(data['sulphates'])
 plt.title('Distribution of sulphates')
 plt.ylabel('Sulphates')
 plt.show()
-plt.boxplot(data['alcohol'],notch=True)
+plt.plot(data['alcohol'])
 plt.title('Distribution of alcohol with outliers')
 plt.ylabel('Alcohol')
 plt.show()
 for i in range(1,5):
     data=outlier_detect(data)
-    plt.boxplot(data['volatile acidity'],notch=True)
+    plt.plot(data['volatile acidity'])
     plt.title('Distribution of volatile acidity without outliers')
     plt.ylabel('Volatile acidity')
     plt.show()
-    plt.boxplot(data['citric acid'],notch=True)
+    plt.plot(data['citric acid'])
     plt.title('Distribution of citric acid without outliers')
     plt.ylabel('Citric acid')
     plt.show()
-    plt.boxplot(data['sulphates'],notch=True)
+    plt.plot(data['sulphates'])
     plt.title('Distribution of sulphates without outliers')
     plt.ylabel('Sulphates')
     plt.show()
-    plt.boxplot(data['alcohol'],notch=True)
+    plt.plot(data['alcohol'])
     plt.title('Distribution of alcohol without outliers')
     plt.ylabel('Alcohol')
     plt.show()
-    x=data[['volatile acidity','citric acid','sulphates','alcohol']].values.reshape(-1,4)
-    y=data['quality'].values.reshape(-1,1)
+"""
+x=data[["fixed acidity","volatile acidity","citric acid","residual sugar","chlorides","free sulfur dioxide","total sulfur dioxide","density","pH","sulphates","alcohol"]].values.reshape(-1,11)
+y=data['quality'].values.reshape(-1,1)
 
-x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.20, random_state=42)
+x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.6, random_state=33)
 reg = LogisticRegression()
 reg.fit(x_train,y_train)
 y_pred=reg.predict(x_test)
