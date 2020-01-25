@@ -26,20 +26,24 @@ def read_data(printing=False):
         print(white_data.sum)
     red_data_values = red_data.drop(columns="quality")
     if printing == True:
+        print("red data head")
         print(red_data_values.head())
-    red_data_quality = red_data.drop(columns=(red_data.keys()[1:12]))
+    red_data_quality = red_data.drop(columns=(red_data.keys()[0:11]))
     if printing == True:
+        print("red quality head")
         print(red_data_quality.head())
 
     white_data_values = white_data.drop(axis=1,columns="quality")
     if printing == True:
+        print("white data head")
         print(white_data_values.head())
-    white_data_quality = white_data.drop(columns=(white_data.keys()[1:12]))
+    white_data_quality = white_data.drop(columns=(white_data.keys()[0:11]))
     if printing == True:
+        print("white quality head")
         print(white_data_quality.head())
 
-    red_data_training,red_data_test, red_quality_training, red_quality_test = model_selection.train_test_split(red_data_values,red_data_quality,test_size=0.2,random_state=42,shuffle=False)
+    red_data_training,red_data_test, red_quality_training, red_quality_test = model_selection.train_test_split(red_data_values,red_data_quality,test_size=0.25,random_state=42,shuffle=False)
 
-    white_data_training,white_data_test, white_quality_training, white_quality_test = model_selection.train_test_split(white_data_values,white_data_quality,test_size=0.2,random_state=42,shuffle=False)
+    white_data_training,white_data_test, white_quality_training, white_quality_test = model_selection.train_test_split(white_data_values,white_data_quality,test_size=0.25,random_state=42,shuffle=False)
     # koniec uniwersalnej czesci
     return red_data_training,red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test
