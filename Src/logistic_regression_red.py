@@ -7,9 +7,15 @@ from sklearn.linear_model import LogisticRegression
 from sklearn import metrics
 #Read the data file
 data=pd.read_csv('../Data/winequality-white.csv')
+<<<<<<< HEAD
 red_data_training, red_data_test, red_quality_training, red_quality_test, white_data_training, white_data_test, white_quality_training, white_quality_test = read_data(True)
 time_before=time.time()
 reg = LogisticRegression(random_state=42, max_iter=2000, solver='saga')
+=======
+red_data_training, red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test = read_data(False)
+
+reg = LogisticRegression()
+>>>>>>> 103021ef48f3900bc979295db7647819d0bb5109
 reg.fit(red_data_training, red_quality_training)
 y_pred = reg.predict(red_data_test)
 time_after=time.time()

@@ -1,6 +1,0 @@
-import catboost_red_basic
-import catboost_red_MultiClass
-import catboost_red_MultiVsAll
-import catboost_white_basic
-import catboost_white_MultiClass
-import catboost_white_MultiVsAll
