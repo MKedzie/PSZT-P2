@@ -1,8 +1,11 @@
+
 RMSE CPU
 quality    0.458824
-dtype: float64RMSE GPU
+dtype: float64
+RMSE GPU
 quality    0.473529
-dtype: float64Catboost uczony CPU wyniki
+dtype: float64
+Catboost uczony CPU wyniki
               precision    recall  f1-score   support
 
            3       0.00      0.00      0.00         5
@@ -20,7 +23,8 @@ weighted avg       0.54      0.60      0.57       340
  [  0   0  91  46   1   0]
  [  0   0  39 104   7   0]
  [  0   0   1  15   8   0]
- [  0   0   0   3   2   0]]Catboost uczony GPU wyniki
+ [  0   0   0   3   2   0]]
+Catboost uczony GPU wyniki
               precision    recall  f1-score   support
 
            3       0.00      0.00      0.00         5

@@ -3,7 +3,7 @@ import catboost
 import time
 import os
 
-red_data_training, red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test = wines_import.read_data(True)
+red_data_training, red_data_test, red_quality_training, red_quality_test,white_data_training,white_data_test, white_quality_training, white_quality_test = wines_import.read_data(False)
 
 
 if(os.path.exists("./catboost modele i wyniki/CPU WHITE MultiVsAll")):
@@ -14,7 +14,6 @@ if(os.path.exists("./catboost modele i wyniki/GPU WHITE MultiVsAll")):
 
 messages_file = open("./catboost modele i wyniki/models WHITE MultiVsAll verification", mode="w+")
 model_white = catboost.CatBoostClassifier(task_type="CPU", random_seed=42, objective="MultiClassOneVsAll",iterations=2000)
-print(white_data_training)
 time_before = time.time()
 model_white.fit(white_data_training, white_quality_training,eval_set=catboost.Pool(white_data_test,white_quality_test,has_header=True))
 time_after = time.time()

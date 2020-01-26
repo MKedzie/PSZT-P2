@@ -1,0 +1,45 @@
+
+RMSE CPU
+quality    0.488396
+dtype: float64
+RMSE GPU
+quality    0.491423
+dtype: float64
+Catboost uczony CPU wyniki
+              precision    recall  f1-score   support
+
+           3       0.00      0.00      0.00         2
+           4       0.33      0.07      0.11        30
+           5       0.65      0.47      0.55       272
+           6       0.60      0.67      0.63       511
+           7       0.39      0.52      0.45       156
+           8       0.00      0.00      0.00        20
+
+    accuracy                           0.56       991
+   macro avg       0.33      0.29      0.29       991
+weighted avg       0.56      0.56      0.55       991
+[[  0   0   0   2   0   0]
+ [  0   2  10  15   3   0]
+ [  0   3 128 132   8   1]
+ [  0   1  59 344 105   2]
+ [  0   0   0  72  81   3]
+ [  0   0   0  10  10   0]]
+Catboost uczony GPU wyniki
+              precision    recall  f1-score   support
+
+           3       0.00      0.00      0.00         2
+           4       0.50      0.17      0.25        30
+           5       0.63      0.46      0.53       272
+           6       0.59      0.66      0.62       511
+           7       0.39      0.53      0.45       156
+           8       0.00      0.00      0.00        20
+
+    accuracy                           0.55       991
+   macro avg       0.35      0.30      0.31       991
+weighted avg       0.55      0.55      0.54       991
+[[  0   0   0   2   0   0]
+ [  0   5   9  14   2   0]
+ [  0   4 124 136   7   1]
+ [  0   1  63 336 110   1]
+ [  0   0   0  73  82   1]
+ [  0   0   0  10  10   0]]
